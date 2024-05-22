@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: rgb(255, 255, 255);
+    overflow-x: hidden;
+    
+}
+
+nav {
+    display: flex;
+    background-color: grey;
+    justify-content: space-around;
+    color: white;
+    height: 80px;
+    align-items: center;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    gap:30px;
+    justify-content: space-between;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input{
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* toggle animation */
+
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2){
+    background-color: white;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+    transform: scale(0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4){
+    background-color: white;
+    transform: rotate(-45deg) translate(-1px, 0px);
+}
+
+.wrapper{
+    margin: 50px;
+    display: grid;
+    gap: 15px;
+    /* grid-template-columns: repeat(auto-fill, 265px); */
+    justify-content: center;
+    
+}
+
+.wrapper li{
+    height: inherit;
+    list-style: none;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 15px 20px 20px;
+    border-style: ridge;
+}
+
+.wrapper .note{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vh;
+}
+
+.note p{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.note span{
+    display: block;
+    margin-top: 5px;
+    color: grey;
+    font-size: 16px;
+}
+
+.title p{
+    border-style: ridge;
+    margin-bottom: -15px;
+}
+
+.note .bottom-content{
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.card-header{
+    font-size: 16;
+}
+
+.card-text{
+    font-size: 14;
+}
+
+@media screen and (max-width: 768px){
+
+    nav ul{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 576px){
+
+    nav ul{
+        position: absolute;
+        right: 0;
+        top: 80;
+        height: 5vh;
+        width: 100%;
+        justify-content: space-evenly;
+        flex-direction: row;
+        align-items: center;
+        background-color: black;
+        z-index: -1;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    nav ul.slide{
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .menu-toggle{
+        display: flex;
+    }
+}
